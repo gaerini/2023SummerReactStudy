@@ -101,4 +101,37 @@ setGameHistory([...gameHistory, nextNum]);
 //아예 새로운 배열을 만들어버리는 것이다.
 ```
 
+10. 적용된 함수명을 전부 바꿔주는 미친 단축키 F2 rename  
+복붙하고 함수명만 바꾸고 싶을 때는 그 함수명을 드래그 하고 f2키를 누른 후 바꿀 이름을 입력하면 이름을 모두 바꿔준다.  
+
+11. state shifting  
+자식 컴포넌트의 스테이트들을 부모 컴포넌트에 올려놓는 것을 state shifting이라고 한다.  
+
+12. virtual DOM  
+리액트는 바로 DOM에 변화된 것을 적용시키지 않는다. 자체적으로 virtual DOM에 먼저 만들어보고 전 state의 virtual DOM과 비교하여 변화된 것을 리랜더링 하는 것이다. 더 효율적으로 돌아간다고 볼 수 있다.  
+
+13. 스타일 먹이기  
+스타일을 먹이기 위해서는 컴포넌트 태그 내에 style 프롭을 주면 된다. 예를 들면 다음과 같다.
+```JSX
+const style = {
+    padding: '14px 28px',
+    border: 'solid 1px #7090ff',
+    outline: 'none',
+    color: '#7090ff',
+    cursor: 'pointer',
+    backgroundColor: 'rgba(0, 89, 255, 0.2)',
+    borderRadius: '30px',
+    fontSize: '17px',
+};
+
+function Button({children, onClick}){
+    //style 속성에 위에서 지정한 style 변수를 넣어준다.
+    return <button style={style} onClick={onClick}>{children}</button>;
+}
+
+export default Button;
+```
+
+한가지 주의할 점은 기존 CSS에서는 background-color와 같이 하이픈으로 연결되어있는 속성을 리액트에서는 카멜케이스로 적어야한다는 것이다.
+
 
